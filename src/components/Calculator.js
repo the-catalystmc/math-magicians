@@ -1,6 +1,7 @@
 import '../scss/style.scss';
 import React from 'react';
 import calculate from '../logic/calculate';
+import operate from '../logic/operate';
 
 class Calculator extends React.Component {
   constructor(prop) {
@@ -9,6 +10,10 @@ class Calculator extends React.Component {
       calcObj: {},
     };
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    operate(1, 2, '+');
   }
 
   handleClick(e) {
