@@ -15,11 +15,7 @@ function isNumber(item) {
  */
 export default function calculate(obj, buttonName) {
   if (buttonName === 'AC') {
-    return {
-      total: null,
-      next: null,
-      operation: null,
-    };
+    return {};
   }
 
   if (isNumber(buttonName)) {
@@ -29,20 +25,26 @@ export default function calculate(obj, buttonName) {
     // If there is an operation, update next
     if (obj.operation) {
       if (obj.next) {
-        return { next: obj.next + buttonName };
+        return {
+          total: obj.total,
+          next: obj.next + buttonName,
+          operation: obj.operation,
+        };
       }
-      return { next: buttonName };
+      return { total: obj.total, next: buttonName, operation: obj.operation };
     }
     // If there is no operation, update next and clear the value
     if (obj.next) {
       return {
+        total: '',
         next: obj.next + buttonName,
-        total: null,
+        operation: obj.operation,
       };
     }
     return {
+      total: '',
       next: buttonName,
-      total: null,
+      operation: obj.operation,
     };
   }
 
@@ -51,21 +53,36 @@ export default function calculate(obj, buttonName) {
       if (obj.next.includes('.')) {
         return {};
       }
-      return { next: `${obj.next}.` };
+      return {
+        total: obj.total,
+        next: `${obj.next}.`,
+        operation: obj.operation,
+      };
     }
     if (obj.operation) {
-      return { next: '0.' };
+      return { total: obj.total, next: '0.', operation: obj.operation };
     }
     if (obj.total) {
       if (obj.total.includes('.')) {
         return {};
       }
-      return { total: `${obj.total}.` };
+      return {
+        total: `${obj.total}.`,
+        next: obj.next,
+        operation: obj.operation,
+      };
     }
     return { total: '0.' };
   }
 
   if (buttonName === '=') {
+    if (obj.total && obj.next === '0' && obj.operation === '÷') {
+      return {
+        total: 'Error',
+        next: null,
+        operation: null,
+      };
+    }
     if (obj.next && obj.operation) {
       return {
         total: operate(obj.total, obj.next, obj.operation),
@@ -79,10 +96,18 @@ export default function calculate(obj, buttonName) {
 
   if (buttonName === '+/-') {
     if (obj.next) {
-      return { next: (-1 * parseFloat(obj.next)).toString() };
+      return {
+        total: obj.total,
+        next: (-1 * parseFloat(obj.next)).toString(),
+        operation: obj.operation,
+      };
     }
     if (obj.total) {
-      return { total: (-1 * parseFloat(obj.total)).toString() };
+      return {
+        total: (-1 * parseFloat(obj.total)).toString(),
+        next: obj.next,
+        operation: obj.operation,
+      };
     }
     return {};
   }
@@ -108,7 +133,7 @@ export default function calculate(obj, buttonName) {
 
   // The user hasn't typed a number yet, just save the operation
   if (!obj.next) {
-    return { operation: buttonName };
+    return { total: obj.total, next: obj.next, operation: buttonName };
   }
 
   // save the operation and shift 'next' into 'total'
