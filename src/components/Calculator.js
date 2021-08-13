@@ -5,11 +5,7 @@ import calculate from '../logic/calculate';
 import operate from '../logic/operate';
 
 const Calculator = () => {
-  const [state, setState] = useState({
-    total: '',
-    next: null,
-    operation: null,
-  });
+  const [state, setState] = useState({});
 
   const handleClick = (e) => {
     if (
@@ -42,7 +38,7 @@ const Calculator = () => {
   return (
     <div className="Calculator">
       <div className="Container">
-        <div className="Display">{ displayScreen }</div>
+        <div className="Display">{displayScreen}</div>
         <div className="Button-Container">
           <button onClick={handleClick} name="AC" type="button" className="Button Normal">AC</button>
           <button onClick={handleClick} name="+/-" type="button" className="Button Normal">+/-</button>
