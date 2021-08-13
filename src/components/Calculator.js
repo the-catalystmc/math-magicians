@@ -7,6 +7,8 @@ import operate from '../logic/operate';
 const Calculator = () => {
   const [state, setState] = useState({});
 
+  let displayScreen = '0';
+
   const handleClick = (e) => {
     if (
       !(
@@ -20,13 +22,8 @@ const Calculator = () => {
     ) {
       const calcObj = calculate(state, e.target.name);
       setState(calcObj);
-      if (calcObj.total === null && calcObj.next === null && calcObj.operation === null) {
-        document.querySelector('input').value = '';
-      }
     }
   };
-
-  let displayScreen = '0';
 
   if (Object.keys(state).length === 0 || (state.total === null
     && state.total === null && state.next === null && state.operation === null)) {
