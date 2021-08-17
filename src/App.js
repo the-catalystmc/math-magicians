@@ -20,13 +20,15 @@ class App extends React.Component {
           <div className="App">
             <div className="Header-Container">
               <h1>Math Magicians</h1>
-              <ul className="Nav-Items">
-                <li className="Nav-Item"><Link to="/">Home</Link></li>
-                <span className="Nav-Item">|</span>
-                <li className="Nav-Item"><Link to="/calculator">Calculator</Link></li>
-                <span className="Nav-Item">|</span>
-                <li className="Nav-Item"><Link to="/quote">Quote</Link></li>
-              </ul>
+              <nav>
+                <ul className="Nav-Items">
+                  <li className="Nav-Item"><Link to="/">Home</Link></li>
+                  <span className="Nav-Item">|</span>
+                  <li className="Nav-Item"><Link to="/calculator">Calculator</Link></li>
+                  <span className="Nav-Item">|</span>
+                  <li className="Nav-Item"><Link to="/quote">Quote</Link></li>
+                </ul>
+              </nav>
             </div>
             <Route path="/" exact component={Home} />
             <Route path="/calculator" component={Calculator} />
