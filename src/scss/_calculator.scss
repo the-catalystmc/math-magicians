@@ -2,13 +2,21 @@
     width: 100%;
     height: 100vh;
     display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .Calc-Half {
+    display: flex;
     align-items: center;
     justify-content: center;
+    width: 70%;
+    height: 100vh;
   }
   
   .Container {
     border: 2px solid white;
-    width: 350px;
+    width: 80%;
     flex-wrap: wrap;
   }
   
@@ -18,7 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    height: 50px;
+    height: 90px;
     padding: 0 5px 0 0;
     font-size: 1.3rem;
   }
@@ -37,7 +45,7 @@
     justify-content: center;
     border: 0.5px solid lightgray;
     flex-basis: 24.5%;
-    height: 50px;
+    height: 90px;
   }
   
   .Zero {
