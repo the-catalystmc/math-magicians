@@ -2,7 +2,7 @@ import '../scss/style.scss';
 import React from 'react';
 
 const Quote = () => (
-  <div className="Home-Container">
+  <div className="Quote-Container">
     <h3>
       Mathematics is not about numbers, equations, computations,
       or algorithms: it is about understanding.
