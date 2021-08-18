@@ -124,7 +124,7 @@ export default function calculate(obj, buttonName) {
     return {};
   }
 
-   // no operation yet, but the user typed one
+  // no operation yet, but the user typed one
 
   // The user hasn't typed a number yet, just save the operation
   if (!obj.next) {
@@ -138,7 +138,7 @@ export default function calculate(obj, buttonName) {
       next: null,
       operation: buttonName,
     };
-  } 
+  }
 
   // save the operation and shift 'next' into 'total'
   return {

@@ -96,8 +96,23 @@ describe('returns correct values', () => {
 
     describe('tests for operation buttons', () => {
         it('should return the expected object', () => {
-            const result = calculate({ total: null, next: null, operation: '+' }, '+');
+            const result = calculate({ total: null, next: null, operation: null }, '-');
             expect(result).toStrictEqual({});
+        })
+
+        it('should return the expected object', () => {
+            const result = calculate({ total: '70', next: null, operation: null }, '-');
+            expect(result).toStrictEqual({ total: '70', next: null, operation: '-' });
+        })
+
+        it('should return the expected object', () => {
+            const result = calculate({ total: '70', next: '7', operation: '-' }, '+');
+            expect(result).toStrictEqual({ total: '63', next: null, operation: '+' });
+        })
+
+        it('should return the expected object', () => {
+            const result = calculate({ total: null, next: '7', operation: null }, '+');
+            expect(result).toStrictEqual({ total: '7', next: null, operation: '+' });
         })
     })
 })
