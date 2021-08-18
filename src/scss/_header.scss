@@ -1,0 +1,19 @@
+.App {
+  height: 100vh;
+  padding: 0 40px;
+}
+
+.Header-Container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Nav-Items {
+  display: flex;
+  list-style: none;
+}
+
+.Nav-Item {
+  padding-right: 5px;
+}
