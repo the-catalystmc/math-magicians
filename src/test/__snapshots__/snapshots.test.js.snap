@@ -19,6 +19,7 @@ exports[`Tests snapshots of components renders correctly 1`] = `
     >
       <div
         className="Display"
+        role="textbox"
       >
         0
       </div>

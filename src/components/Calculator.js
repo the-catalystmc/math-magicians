@@ -43,7 +43,7 @@ const Calculator = () => {
       </div>
       <div className="Calc-Half">
         <div className="Container">
-          <div className="Display">{displayScreen}</div>
+          <div role="textbox" className="Display">{displayScreen}</div>
           <div className="Button-Container">
             <button onClick={handleClick} name="AC" type="button" className="Button Normal">AC</button>
             <button onClick={handleClick} name="+/-" type="button" className="Button Normal">+/-</button>
