@@ -28,5 +28,76 @@ describe('returns correct values', () => {
             const result = calculate({ total: '10', next: '5.07', operation: '+' }, '.');
             expect(result).toStrictEqual({});
         })
+
+        it('returns the expected object', () => {
+            const result = calculate({ total: '10', next: '5', operation: '+' }, '.');
+            expect(result).toStrictEqual({ total: '10', next: '5.', operation: '+' });
+        })
+
+        it('returns the expected object', () => {
+            const result = calculate({ total: null, next: null, operation: '+' }, '.');
+            expect(result).toStrictEqual({ total: null, next: '0.', operation: '+' });
+        })
+
+        it('returns the expected object', () => {
+            const result = calculate({ total: '8.07', next: null, operation: null }, '.');
+            expect(result).toStrictEqual({});
+        })
+
+        it('returns the expected object', () => {
+            const result = calculate({ total: '8', next: null, operation: null }, '.');
+            expect(result).toStrictEqual({ total: '8.', next: null, operation: null });
+        })
+
+        it('returns the expected object', () => {
+            const result = calculate({ total: null, next: null, operation: null }, '.');
+            expect(result).toStrictEqual({ total: '0.' });
+        })
+    })
+
+    describe('tests for equal sign', () => {
+        it('should return error in total', () => {
+            const result = calculate({ total: '987', next: '0', operation: '÷' }, '=');
+            expect(result).toStrictEqual({ total: 'Error', next: null, operation: null });
+        })
+
+        it('should return empty', () => {
+            const result = calculate({ total: '987', next: null, operation: '÷' }, '=');
+            expect(result).toStrictEqual({});
+        })
+
+        it('should return empty', () => {
+            const result = calculate({ total: '987', next: null, operation: null }, '=');
+            expect(result).toStrictEqual({});
+        })
+
+        it('should perform an operation', () => {
+            const result = calculate({ total: '987', next: '2', operation: '+' }, '=');
+            expect(result).toStrictEqual({ total: '989', next: null, operation: null });
+        }) 
+    })
+
+    describe('tests for positive-negative sign', () => {
+        it('should return the positive or negative of the number', () => {
+            const result = calculate({ total: '987', next: '2', operation: '+' }, '+/-');
+            expect(result).toStrictEqual({ total: '987', next: '-2', operation: '+' });
+        })
+
+        it('should return the positive or negative of the number', () => {
+            const result = calculate({ total: '987', next: null, operation: '+' }, '+/-');
+            expect(result).toStrictEqual({ total: '-987', next: null, operation: '+' });
+        })
+
+        it('should return empty if no total and no next', () => {
+            const result = calculate({ total: null, next: null, operation: '+' }, '+/-');
+            expect(result).toStrictEqual({});
+        })
+    })
+
+    describe('tests for operation buttons', () => {
+        it('should return the expected object', () => {
+            const result = calculate({ total: null, next: null, operation: '+' }, '+');
+            expect(result).toStrictEqual({});
+        })
     })
 })
