@@ -15,11 +15,17 @@ Math magicians is a website for all fans of mathematics. It is a Single Page App
 To get a local copy up and running follow these simple example steps. You can either download the zip file, or clone the repository from [here](https://github.com/the-catalystmc/math-magicians). Once the repository is available locally you can use: `npm install` to install the packages `npm start` to run the server on local server.
 To run tests `npm test` can be used.
 
+## Authors
+
 👤 **Rhyine Stewart**
 
 - GitHub: [@the-catalyst-mc](https://github.com/the-catalyst-mc)
 - Twitter: [@catalystspeaks](https://twitter.com/catalystspeaks)
 - LinkedIn: [Rhyine Stewart](https://linkedin.com/in/rhyinestewart)
+
+👤 **Daniel Jaramillo**
+
+- GitHub: [@D4nielJ](https://github.com/d4nielj) 
 
 
 ## 🤝 Contributing
