@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Route, BrowserRouter as Router, Switch, Link,
+  Route, BrowserRouter as Router, Switch, Link, Redirect,
 } from 'react-router-dom';
 // import Header from './components/Header';
 import Home from './components/Home';
@@ -22,7 +22,7 @@ class App extends React.Component {
               <h1>Math Magicians</h1>
               <nav>
                 <ul className="Nav-Items">
-                  <li className="Nav-Item"><Link to="/">Home</Link></li>
+                  <li className="Nav-Item"><Link to="/home">Home</Link></li>
                   <span className="Nav-Item">|</span>
                   <li className="Nav-Item"><Link to="/calculator">Calculator</Link></li>
                   <span className="Nav-Item">|</span>
@@ -30,7 +30,10 @@ class App extends React.Component {
                 </ul>
               </nav>
             </div>
-            <Route path="/" exact component={Home} />
+            <Route path="/">
+              <Redirect to="/home" />
+            </Route>
+            <Route path="/home" exact component={Home} />
             <Route path="/calculator" component={Calculator} />
             <Route path="/quote" component={Quote} />
           </div>
