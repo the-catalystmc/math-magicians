@@ -1,5 +1,5 @@
 import React from 'react';
-
+import renderer from 'react-test-renderer';
 import Calculator from '../components/Calculator';
 
 it('renders correctly', () => {
@@ -7,4 +7,5 @@ it('renders correctly', () => {
     .create(<Calculator />)
     .toJSON();
   expect(calculatorTree).toMatchSnapshot();
+  console.log(calculatorTree);
 });
