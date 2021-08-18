@@ -5,7 +5,11 @@ import calculate from '../logic/calculate';
 import operate from '../logic/operate';
 
 const Calculator = () => {
-  const [state, setState] = useState({});
+  const [state, setState] = useState({
+    total: null,
+    next: null,
+    operation: null,
+  });
 
   let displayScreen = '0';
 
@@ -21,7 +25,7 @@ const Calculator = () => {
       )
     ) {
       const calcObj = calculate(state, e.target.name);
-      setState(calcObj);
+      setState((prevState) => ({ ...prevState, ...calcObj }));
     }
   };
 

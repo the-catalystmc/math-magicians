@@ -1,10 +1,11 @@
 import calculate from '../logic/calculate';
-import calculator from '../logic/calculate';
 
 describe('returns correct values', () => {
-    it('returns empty object', () => {
-        const result = calculate({ total: '10', next: '5', operation: '+' }, 'AC');
-        expect(result).toStrictEqual({});
+    describe('tests for AC key', () => {
+        it('returns empty object', () => {
+            const result = calculate({ total: '10', next: '5', operation: '+' }, 'AC');
+            expect(result).toStrictEqual({ total: null, next: null, operation: null });
+        })
     })
 
     describe('test if user passes number', () => {
@@ -19,6 +20,13 @@ describe('returns correct values', () => {
         it('if there is no next update next', () => {
             const result = calculate({ total: '', next: '', operation: '' }, '7');
             expect(result).toStrictEqual({ total: '', next: '7', operation: '' });
+        })
+    })
+
+    describe('tests for decimal key', () => {
+        it('returns the expected object', () => {
+            const result = calculate({ total: '10', next: '5.07', operation: '+' }, '.');
+            expect(result).toStrictEqual({});
         })
     })
 })
