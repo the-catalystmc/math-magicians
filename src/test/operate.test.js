@@ -17,4 +17,9 @@ describe('calculates using operator', () => {
         const result = operate(10, 5, '÷');
         expect(result).toBe('2')
     })
+    it('operator error', () => {
+        expect(() => {
+            operate(10, 10, 'p');
+        }).toThrow();
+    })
 })
