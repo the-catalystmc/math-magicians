@@ -11,18 +11,18 @@ describe('Tests snapshots of components', () => {
       .toJSON();
     expect(calculatorTree).toMatchSnapshot();
   });
-  
+
   it('renders correctly', () => {
     const homeTree = renderer
       .create(<Home />)
       .toJSON();
     expect(homeTree).toMatchSnapshot();
   });
-  
+
   it('renders correctly', () => {
     const quoteTree = renderer
       .create(<Quote />)
       .toJSON();
     expect(quoteTree).toMatchSnapshot();
   });
-})
+});
